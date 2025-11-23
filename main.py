@@ -1,8 +1,12 @@
 from modules.auth import signup, login
+from modules.admin import admin_menu
+from modules.user import user_menu
+from utils.file_handler import initialize_json_files 
 
 def main():
+    initialize_json_files()
     while True:
-        print("\n=========== WELOCOME TO GROCERY MANAGEMENT SYSTEM ===========")
+        print("\n=========== WELCOME TO GROCERY MANAGEMENT SYSTEM ===========")
         print("1. Login")
         print("2. Signup")
         print("3. Exit")
@@ -15,10 +19,10 @@ def main():
             if user:  
                 if user.get("role") == "admin":
                     print("\n--------- Welcome Admin ---------")
-                    # admin_menu()  # call later
+                    admin_menu()  
                 else:
                     print("\n--------- Welcome User ---------")
-                    # user_menu()  # call later
+                    user_menu(user)  
 
         elif choice == "2":
             signup()

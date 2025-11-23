@@ -1,6 +1,13 @@
 import json
 import os
 from getpass import getpass
+from utils.validation import (
+    get_validated_name,
+    get_validated_date,
+    get_validated_phone,
+    get_validated_password,
+    sanitize_input
+)
 
 USER_FILE_PATH = "data/users.json"
 
@@ -23,11 +30,12 @@ def save_users(users):
 
 def signup():
     print("\n----WELCOME TO SIGNUP PAGE----\n")
-    name=input("Enter you name: ")
-    dob=input("Enter you date of birth: ")
-    phone=input("Enter your phone number: ")
-    location=input("Enter your location: ")
-    password=getpass("Enter your Password: ")
+     
+    name = get_validated_name("your name")
+    dob = get_validated_date("your date of birth")
+    phone = get_validated_phone()
+    location = sanitize_input(input("Enter your location: "))
+    password = get_validated_password()
     print("Press Enter to sign up")
 
     users = load_users()

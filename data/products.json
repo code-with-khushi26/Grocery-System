@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "APPLE",
+        "category": "FRUIT",
+        "quantity": 6,
+        "price": 56.0
+    }
+]

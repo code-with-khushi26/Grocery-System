@@ -1,4 +1,15 @@
 [
+
+
+    {
+        "name": "Admin",
+        "dob": "01-01-2000",
+        "phone": "admin",
+        "location": "System",
+        "password": "admin123",
+        "role": "admin"
+    },
+    
     {
         "name": "khushi",
         "dob": "26-11-2006",
@@ -6,5 +17,14 @@
         "location": "delhi",
         "password": "123456",
         "role": "user"
+    },
+    {
+        "name": "khushi",
+        "dob": "23-11-2025",
+        "phone": "8595843976",
+        "location": "delhi",
+        "password": "Khushi26",
+        "role": "user"
     }
 ]
+
