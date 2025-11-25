@@ -2,8 +2,43 @@
     {
         "id": 1,
         "name": "APPLE",
-        "category": "FRUIT",
-        "quantity": 6,
+        "category": "fruit",
+        "quantity": 12,
+        "price": 56.0
+    },
+    {
+        "id": 2,
+        "name": "Potato",
+        "category": "veggie",
+        "quantity": 16,
+        "price": 47.0
+    },
+    {
+        "id": 3,
+        "name": "Lemon",
+        "category": "veggie",
+        "quantity": 7,
+        "price": 17.0
+    },
+    {
+        "id": 4,
+        "name": "Capsicum",
+        "category": "veggie",
+        "quantity": 14,
+        "price": 24.0
+    },
+    {
+        "id": 5,
+        "name": "Banana",
+        "category": "fruit",
+        "quantity": 52,
+        "price": 33.0
+    },
+    {
+        "id": 6,
+        "name": "Strawberry",
+        "category": "fruit",
+        "quantity": 45,
         "price": 56.0
     }
 ]

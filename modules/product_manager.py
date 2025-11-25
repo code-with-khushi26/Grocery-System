@@ -27,15 +27,30 @@ def save_products(products):
         json.dump(products, file, indent=4)
 
 
+def product_name_exists(products, name, exclude_id=None):
+    """Check if a product with the given name already exists (case-insensitive)."""
+    for product in products:
+        if product["name"].lower() == name.lower():
+            if exclude_id is None or product["id"] != exclude_id:
+                return True
+    return False
+
+
 def add_product():
     """Add a new product to the system."""
     print("\n---- ADD PRODUCT ----")
     name = get_validated_name("Product Name")
+    
+    products = load_products()
+    
+    # Check for duplicate name
+    if product_name_exists(products, name):
+        print(f"\n❌ Product with name '{name}' already exists! Please use a different name.\n")
+        return
+    
     category = get_validated_category()
     quantity = get_validated_quantity()
     price = get_validated_price()
-
-    products = load_products()
 
     # Auto assign ID (increment)
     product_id = len(products) + 1
@@ -87,7 +102,12 @@ def update_product():
             choice = input("Enter choice: ")
 
             if choice == "1":
-                product["name"] = input("New Name: ")
+                new_name = input("New Name: ")
+                # Check if new name already exists (excluding current product)
+                if product_name_exists(products, new_name, exclude_id=prod_id):
+                    print(f"\n❌ Product with name '{new_name}' already exists! Please use a different name.")
+                    return
+                product["name"] = new_name
 
             elif choice == "2":
                 product["category"] = input("New Category: ")
@@ -103,7 +123,7 @@ def update_product():
                 return
 
             save_products(products)
-            print("\n✔ Product updated successfully!")
+            print("\n✅ Product updated successfully!")
             return
 
     print("❌ Product ID not found.")
